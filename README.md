@@ -20,4 +20,4 @@ the user's Google profile.
    and add the keys `client_id` and `client_secret` to it (and the
    corresponding values from step 1, of course)
 1. run the [main class](https://github.com/bkiers/retrofit-oauth/blob/master/src/main/java/nl/bigo/retrofitoauth/Main.java)
-   by executing `mvn -q exec:exec`, and follow the instructions on the console
+   by executing `mvn exec:exec`, and follow the instructions on the console
