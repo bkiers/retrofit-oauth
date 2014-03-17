@@ -1,0 +1,49 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>nl.big-o</groupId>
+    <artifactId>retrofit-oauth</artifactId>
+    <version>0.1.0</version>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.squareup.retrofit</groupId>
+            <artifactId>retrofit</artifactId>
+            <version>1.4.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.squareup.okhttp</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>1.5.1</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+
+        <plugins>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <configuration>
+                    <executable>mvn</executable>
+                    <arguments>
+                        <argument>clean</argument>
+                        <argument>install</argument>
+                        <argument>exec:java</argument>
+                    </arguments>
+                    <mainClass>nl.bigo.retrofitoauth.Main</mainClass>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+</project>

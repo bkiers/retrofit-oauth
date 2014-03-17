@@ -1,0 +1,10 @@
+# local config file
+local.properties
+
+# binaries
+target/
+*.class
+
+# IntelliJ files
+*.iml
+.idea/
