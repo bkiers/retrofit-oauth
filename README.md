@@ -6,8 +6,8 @@ the user's Google profile.
 
 ## Run the demo
 
-1. create a new project: [console.developers.google.com](https://console.developers.google.com)
-2. go to
+1. create a new project: [console.developers.google.com](https://console.developers.google.com), 
+   and go to
     * `APIs & auth`
         * `Credentials`
             * `Create New Client ID`
@@ -16,8 +16,8 @@ the user's Google profile.
             * write down the `Client ID` and `Client secret`
         * `APIs`
             * enable `Google+ API`
-3. create a file called `local.properties` in the root of this project
+1. create a file called `local.properties` in the root of this project
    and add the keys `client_id` and `client_secret` to it (and the
    corresponding values from step 1, of course)
-4. run the [main class](https://github.com/bkiers/retrofit-oauth/blob/master/src/main/java/nl/bigo/retrofitoauth/Main.java)
+1. run the [main class](https://github.com/bkiers/retrofit-oauth/blob/master/src/main/java/nl/bigo/retrofitoauth/Main.java)
    by executing `mvn -q exec:exec`, and follow the instructions on the console
