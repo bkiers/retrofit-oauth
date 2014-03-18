@@ -13,7 +13,7 @@ the user's Google profile.
             * `Create New Client ID`
             * `Installed application` and `Other`
             * `Create Client ID`
-            * write down the `Client ID` and `Client secret`
+            * copy the `Client ID` and `Client secret`
         * `APIs`
             * enable `Google+ API`
 1. create a file called `local.properties` in the root of this project
