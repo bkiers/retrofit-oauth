@@ -77,7 +77,7 @@ public class Main {
         }
         catch (RetrofitError error) {
             if (error.getResponse() == null) {
-                System.out.println("error=" + error;
+                System.out.println("error=" + error);
             }
             else {
                 System.out.println("response=" + error.getResponse() + ", status=" + error.getResponse().getStatus());
