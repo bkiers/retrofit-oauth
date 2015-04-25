@@ -4,7 +4,9 @@ import retrofit.http.*;
 
 public interface GoogleAccountsService {
 
-    public static final String BASE_URL = "https://accounts.google.com";
+    String BASE_URL = "https://accounts.google.com";
+    String ACCESS_GRANT_TYPE = "http://oauth.net/grant_type/device/1.0";
+    String REFRESH_GRANT_TYPE = "refresh_token";
 
     @POST("/o/oauth2/device/code")
     @FormUrlEncoded
@@ -20,8 +22,8 @@ public interface GoogleAccountsService {
 
     @POST("/o/oauth2/token")
     @FormUrlEncoded
-    RefreshToken refreshAccessToken(@Field("client_id") String clientId,
-                                    @Field("client_secret") String clientSecret,
-                                    @Field("refresh_token") String refreshToken,
-                                    @Field("grant_type") String grantType);
+    AccessToken refreshAccessToken(@Field("client_id") String clientId,
+                                   @Field("client_secret") String clientSecret,
+                                   @Field("refresh_token") String refreshToken,
+                                   @Field("grant_type") String grantType);
 }

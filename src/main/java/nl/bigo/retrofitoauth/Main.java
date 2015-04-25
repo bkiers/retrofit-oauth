@@ -66,13 +66,21 @@ public class Main {
                     userCode.getVerificationUrl(), userCode.getUserCode());
             keyboard.nextLine();
 
-            // Get the access token after the user verified access.
-            AccessToken accessToken = accountsService.getAccessToken(
-                    clientId, clientSecret, userCode.getDeviceCode(), "http://oauth.net/grant_type/device/1.0");
-            System.out.println(accessToken);
-
-            // Use Retrofit to get the user's Google Profile using the access token.
+            // Get the access token after the user verified access and get the user's profile with it.
+            AccessToken accessToken = accountsService.getAccessToken(clientId, clientSecret,
+                    userCode.getDeviceCode(), GoogleAccountsService.ACCESS_GRANT_TYPE);
+            // Store this refresh token separately: subsequent access tokens will not include it! Getting
+            // a new refresh token would mean asking the user to enter another code!
+            final String refreshToken = accessToken.getRefreshToken();
             GoogleApisService apisService = ServiceGenerator.createService(GoogleApisService.class, GoogleApisService.BASE_URL, accessToken);
+            System.out.println("token: " + accessToken);
+            System.out.println(apisService.getProfile());
+
+            // Now pretend that our access token expired and get a new access token with the refresh token.
+            AccessToken refreshedAccessToken = accountsService.refreshAccessToken(clientId, clientSecret,
+                    refreshToken, GoogleAccountsService.REFRESH_GRANT_TYPE);
+            apisService = ServiceGenerator.createService(GoogleApisService.class, GoogleApisService.BASE_URL, refreshedAccessToken);
+            System.out.println("refreshed token: " + refreshedAccessToken); // Note: no refreshToken in here!
             System.out.println(apisService.getProfile());
         }
         catch (RetrofitError error) {
